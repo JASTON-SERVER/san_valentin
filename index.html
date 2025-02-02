@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9e3e3;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            width: 400px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        .buttons button.yes {
+            background-color: green;
+            color: white;
+        }
+        .buttons button.no {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="bety.png" alt="Corazón">
+        <h1>¡Quieres ser mi San Valentín?</h1>
+        <div class="buttons">
+            <button class="yes" onclick="window.location.href='carta.html'">Sí</button>
+            <button class="no" id="noButton">No</button>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount >= 5) {
+                // Reproducir un video después de 5 clics
+                window.open('https://youtu.be/RMerAaZ4usI?si=l2PJ_KKvMeUq9kba', '_blank');
+            } else {
+                // Mover el botón "No" aleatoriamente
+                const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            }
+        });
+    </script>
+</body>
+</html>
